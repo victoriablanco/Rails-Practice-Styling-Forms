@@ -1,4 +1,14 @@
-<%= form_for(@person) do |f| %>
+<div class="panel panel-default">
+<div class="page-header">
+<h1>New Person</h1>
+
+</div>
+  <div class="panel-heading"></div>
+  <div class="panel-body">
+
+  </div>
+
+<%= form_for(@person, :html => { :class => 'form-horizontal'}) do |f| %>
   <% if @person.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
@@ -11,24 +21,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+  <div class="form-group">
+    <%= f.label :first_name, class: "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+    <%= f.text_field :first_name, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
   </div>
-  <div class="field">
-    <%= f.label :date_of_birth %><br>
-    <%= f.date_select :date_of_birth %>
+
+  <div class="form-group">
+    <%= f.label :last_name, class: "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+    <%= f.text_field :last_name, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :bio %><br>
-    <%= f.text_area :bio %>
   </div>
-  <div class="field">
-    <%= f.label :active %><br>
+  <div class="form-group">
+    <%= f.label :date_of_birth, class: "col-sm-2 control-label"  %>
+    <%= f.date_select :date_of_birth, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :bio, class: "col-sm-2 control-label"  %>
+    <%= f.text_area :bio, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :active %>
     <%= f.check_box :active %>
   </div>
   <div class="actions">

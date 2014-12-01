@@ -1,42 +1,54 @@
-<h1>Listing people</h1>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"></div>
+  <div class="panel-body">
 
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Date of birth</th>
-      <th>Bio</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <p><h1>Listing people</h1></p>
 
-  <tbody>
-    <% @people.each do |person| %>
-      <tr>
-        <td><%= person.first_name %></td>
-        <td><%= person.last_name %></td>
-        <td><%= person.date_of_birth %></td>
-        <td><%= person.bio %></td>
-        <td><%= person.active %></td>
-        <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="page-header">
+      <div class="pull-right">
+        <%= link_to 'New Person', new_person_path, class: "btn btn-info" %>
+      </div>
+    </div>
 
-<br>
+  </div>
 
-<%= link_to 'New Person', new_person_path %>
+  <table>
+    <thead>
+      <table class="table">
+        <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Date of birth</th>
+          <th>Bio</th>
+          <th colspan="3"></th>
+        </tr>
+      </div>
 
-<div class="well example">
-  <p>
-    <strong>
-      It should look like this:
-    </strong>
-  </p>
+      <tbody>
+        <% @people.each do |person| %>
+        <tr>
+          <td><%= person.first_name %></td>
+          <td><%= person.last_name %></td>
+          <td><%= person.date_of_birth %></td>
+          <td><%= person.bio %></td>
+          <td><%= person.active %></td>
+          <td><%= link_to 'Show', person %></td>
+          <td><%= link_to 'Edit', edit_person_path(person) %></td>
+          <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </thead>
+    </tbody>
+  </table>
 
-  <%= image_tag "list-people.png", class: "img-responsive" %>
-</div>
+
+
+  <div class="well example">
+    <p>
+      <strong>
+        It should look like this:
+      </strong>
+    </p>
+    <%= image_tag "list-people.png", class: "img-responsive" %>
+  </div>
